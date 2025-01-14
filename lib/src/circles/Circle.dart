@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:animated_background_view/src/stains/CircleListener.dart';
+import 'package:animated_background_view/src/circles/CircleListener.dart';
 
 class Circle {
 
