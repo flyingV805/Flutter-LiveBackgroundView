@@ -91,7 +91,7 @@ class CirclesPainter extends BackgroundPainter implements CircleListener {
 
   @override
   void orientationChanged() {
-    // TODO: implement orientationChanged
+    _initialized = false;
   }
 
 }

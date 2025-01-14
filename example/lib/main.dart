@@ -105,6 +105,12 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: (){ setState(() { _bgType = BackgroundType.circles; }); _blur = false; },
             icon: const Icon(Icons.threed_rotation),
             label: const Text('Circles'),
+          ),
+          const SizedBox(height: 16),
+          FloatingActionButton.extended(
+            onPressed: (){ setState(() { _bgType = BackgroundType.squares; }); _blur = false; },
+            icon: const Icon(Icons.threed_rotation),
+            label: const Text('Squares'),
           )
         ],
       ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:animated_background_view/src/glare/GlaresPainter.dart';
 import 'package:animated_background_view/src/movingGlare/MovingGlarePainter.dart';
+import 'package:animated_background_view/src/squares/SquaresPainter.dart';
 import 'package:animated_background_view/src/stains/CirclesPainter.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,8 @@ import 'utils/BackgroundPainter.dart';
 enum BackgroundType {
   glares,
   movingGlares,
-  circles
+  circles,
+  squares
 }
 
 class AnimatedBackground extends StatefulWidget {
@@ -93,6 +95,12 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>{
         blurAmount: widget.blurAmount,
       ),
       BackgroundType.circles => CirclesPainter(
+        repaint: _shouldRepaint,
+        colors: widget.stainsColors,
+        enableBlur: widget.blur,
+        blurAmount: widget.blurAmount
+      ),
+      BackgroundType.squares => SquaresPainter(
         repaint: _shouldRepaint,
         colors: widget.stainsColors,
         enableBlur: widget.blur,

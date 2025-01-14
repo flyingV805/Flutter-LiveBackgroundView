@@ -95,7 +95,7 @@ class MovingGlarePainter extends BackgroundPainter implements MovingGlareListene
 
   @override
   void orientationChanged() {
-    // TODO: implement orientationChanged
+    _initialized = false;
   }
 
 }

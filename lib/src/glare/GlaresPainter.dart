@@ -96,7 +96,7 @@ class GlaresPainter extends BackgroundPainter implements GlareListener {
 
   @override
   void orientationChanged() {
-    // TODO: implement orientationChanged
+    _initialized = false;
   }
 
 }
