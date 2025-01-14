@@ -57,6 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(color: Colors.blue),
           const AnimatedBackground(
             fps: 60,
+            glareSize: 48,
+            glareCount: 24,
+            glareColors: [Colors.white],
+            type: BackgroundType.movingGlares,
           )
         ],
       ),

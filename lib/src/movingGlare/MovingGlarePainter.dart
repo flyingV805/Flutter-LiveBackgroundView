@@ -1,20 +1,20 @@
 import 'dart:math';
 
-import 'package:animated_background_view/src/glare/GlareListener.dart';
+import 'package:animated_background_view/src/movingGlare/MovingGlare.dart';
 import 'package:animated_background_view/src/utils/list.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/math.dart';
-import 'Glare.dart';
+import 'MovingGlareListener.dart';
 
-class GlaresPainter extends CustomPainter implements GlareListener {
+class MovingGlarePainter extends CustomPainter implements MovingGlareListener {
 
   final Random _random = Random();
   final List<Color> colors;
   final int glareCount;
   final double glareSize;
 
-  GlaresPainter({
+  MovingGlarePainter({
     super.repaint,
     required this.colors,
     required this.glareCount,
@@ -25,7 +25,7 @@ class GlaresPainter extends CustomPainter implements GlareListener {
   double _viewHeight = 0.0;
   bool _initialized = false;
 
-  final Map<int, Glare> _glareMaps = <int, Glare>{};
+  final Map<int, MovingGlare> _glareMaps = <int, MovingGlare>{};
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -37,25 +37,27 @@ class GlaresPainter extends CustomPainter implements GlareListener {
       start();
     }
 
-    for(final Glare glare in _glareMaps.values.toList()){
-      glare.draw(canvas);
+    for(final MovingGlare glare in _glareMaps.values.toList()){
+      glare.draw(canvas, _viewWidth, _viewHeight);
     }
 
   }
 
   void start(){
     for(int i = 0; i <= glareCount; i++){
-      final Glare glare = _createGlare(i);
+      final MovingGlare glare = _createGlare(i);
       _glareMaps[i] = glare;
     }
 
   }
 
-  Glare _createGlare(int id){
-    return Glare(
+  MovingGlare _createGlare(int id){
+    return MovingGlare(
       id: id,
       x: doubleInRange(_random, 0.0, _viewWidth),
       y: doubleInRange(_random, 0.0, _viewHeight),
+      xVector: doubleInRange(_random, -0.3, 0.3),
+      yVector: doubleInRange(_random, -0.3, 0.3),
       size: glareSize,
       color: colors.randomItem(_random),
       multiplierFactor: doubleInRange(_random, 0.005, 0.03),
@@ -65,9 +67,7 @@ class GlaresPainter extends CustomPainter implements GlareListener {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 
   @override
   void onGlareAnimationComplete(int id) {
