@@ -45,6 +45,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  bool _blur = false;
+  BackgroundType _bgType = BackgroundType.circles;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,21 +57,57 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Stack(
         children: <Widget>[
-          Container(color: Colors.blue),
-          const AnimatedBackground(
+          Container(color: const Color(0xff020100)),
+          AnimatedBackground(
             fps: 60,
-            glareSize: 48,
-            glareCount: 24,
-            glareColors: [Colors.white],
-            type: BackgroundType.movingGlares,
+            type: _bgType,
+            blur: _blur,
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){ },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(width: 8),
+                  const Text('Blur'),
+                  const SizedBox(width: 8),
+                  Switch(
+                    value: _blur,
+                    onChanged: (newValue){
+                      setState(() { _blur = newValue; });
+                    }
+                  )
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          FloatingActionButton.extended(
+            onPressed: (){ setState(() { _bgType = BackgroundType.glares; _blur = true; }); },
+            icon: const Icon(Icons.repeat_one_on),
+            label: const Text('Glares'),
+          ),
+          const SizedBox(height: 16),
+          FloatingActionButton.extended(
+            onPressed: (){ setState(() { _bgType = BackgroundType.movingGlares; _blur = true; }); },
+            icon: const Icon(Icons.looks_two_outlined),
+            label: const Text('Moving Glares'),
+          ),
+          const SizedBox(height: 16),
+          FloatingActionButton.extended(
+            onPressed: (){ setState(() { _bgType = BackgroundType.circles; }); _blur = false; },
+            icon: const Icon(Icons.threed_rotation),
+            label: const Text('Circles'),
+          )
+        ],
+      ),
     );
   }
 }

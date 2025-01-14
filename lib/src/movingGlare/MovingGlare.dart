@@ -30,12 +30,15 @@ class MovingGlare {
 
   double _alpha = 0.0;
 
-  final Paint _paint = Paint()
-    ..style = PaintingStyle.stroke
-    ..strokeWidth = 4.0
-    ..style = PaintingStyle.fill;
+  /*
 
-  void draw(Canvas canvas, double viewWidth, double viewHeight){
+  ..imageFilter = ui.ImageFilter.blur(sigmaX: 15, sigmaY: 15)
+  ..blendMode = BlendMode.srcOver;
+
+  */
+  //..blendMode = BlendMode.clear;
+
+  void draw(Canvas canvas, double viewWidth, double viewHeight, Paint paint){
     if (_alpha > 1){ multiplierFactor *= -1.0; }
 
     _alpha += incrementFactor * multiplierFactor;
@@ -52,9 +55,9 @@ class MovingGlare {
       return;
     }
 
-    _paint.color = color.withOpacity(_alpha.clamp(0, 1));
+    paint.color = color.withOpacity(_alpha.clamp(0, 1));
 
-    canvas.drawCircle(Offset(x, y), size, _paint);
+    canvas.drawCircle(Offset(x, y), size, paint);
   }
 
 }

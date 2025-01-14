@@ -28,12 +28,7 @@ class Glare {
 
   double _alpha = 0.0;
 
-  final Paint _paint = Paint()
-    ..style = PaintingStyle.stroke
-    ..strokeWidth = 4.0
-    ..style = PaintingStyle.fill;
-
-  void draw(Canvas canvas){
+  void draw(Canvas canvas, Paint paint){
     if (_alpha > 1){ multiplierFactor *= -1.0; }
     _alpha += incrementFactor * multiplierFactor;
     if (_alpha <= 0.0) {
@@ -41,8 +36,8 @@ class Glare {
       return;
     }
 
-    _paint.color = color.withOpacity(_alpha.clamp(0, 1));
-    canvas.drawCircle(Offset(x, y), size, _paint);
+    paint.color = color.withOpacity(_alpha.clamp(0, 1));
+    canvas.drawCircle(Offset(x, y), size, paint);
   }
 
 }

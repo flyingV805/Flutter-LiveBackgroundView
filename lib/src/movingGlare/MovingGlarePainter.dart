@@ -1,25 +1,44 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:animated_background_view/src/movingGlare/MovingGlare.dart';
 import 'package:animated_background_view/src/utils/list.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/BackgroundPainter.dart';
 import '../utils/math.dart';
 import 'MovingGlareListener.dart';
 
-class MovingGlarePainter extends CustomPainter implements MovingGlareListener {
+class MovingGlarePainter extends BackgroundPainter implements MovingGlareListener {
 
   final Random _random = Random();
   final List<Color> colors;
   final int glareCount;
   final double glareSize;
+  final bool enableBlur;
+  final double blurAmount;
+
+  final Paint _glarePaint = Paint()
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 4.0
+    ..style = PaintingStyle.fill;
 
   MovingGlarePainter({
     super.repaint,
     required this.colors,
     required this.glareCount,
     required this.glareSize,
-  });
+    required this.enableBlur,
+    required this.blurAmount,
+  }){
+   if(enableBlur){
+     _glarePaint.imageFilter = ImageFilter.blur(
+       sigmaX: blurAmount,
+       sigmaY: blurAmount,
+       tileMode: TileMode.decal
+     );
+   }
+  }
 
   double _viewWidth = 0.0;
   double _viewHeight = 0.0;
@@ -38,7 +57,7 @@ class MovingGlarePainter extends CustomPainter implements MovingGlareListener {
     }
 
     for(final MovingGlare glare in _glareMaps.values.toList()){
-      glare.draw(canvas, _viewWidth, _viewHeight);
+      glare.draw(canvas, _viewWidth, _viewHeight, _glarePaint);
     }
 
   }
@@ -48,7 +67,6 @@ class MovingGlarePainter extends CustomPainter implements MovingGlareListener {
       final MovingGlare glare = _createGlare(i);
       _glareMaps[i] = glare;
     }
-
   }
 
   MovingGlare _createGlare(int id){
@@ -73,6 +91,11 @@ class MovingGlarePainter extends CustomPainter implements MovingGlareListener {
   void onGlareAnimationComplete(int id) {
     _glareMaps.remove(id);
     _glareMaps[id] = _createGlare(id);
+  }
+
+  @override
+  void orientationChanged() {
+    // TODO: implement orientationChanged
   }
 
 }
