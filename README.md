@@ -9,7 +9,8 @@ Currently, 4 modes are available:
 + Moving Glares
 + Circles
 + Squares.
-  Each mode can have a blur effect applied, and shadows can be added to Circles and Squares.
+
+Each mode can have a blur effect applied, and shadows can be added to Circles and Squares.
 
 | Glares                                       | MovingGlares                                       | Circles                                       | Squares                                       |
 |----------------------------------------------|----------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
