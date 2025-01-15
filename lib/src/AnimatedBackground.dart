@@ -4,9 +4,7 @@ import 'package:animated_background_view/src/movingGlare/MovingGlarePainter.dart
 import 'package:animated_background_view/src/squares/SquaresPainter.dart';
 import 'package:animated_background_view/src/circles/CirclesPainter.dart';
 import 'package:flutter/material.dart';
-
 import 'utils/BackgroundPainter.dart';
-
 
 enum BackgroundType {
   glares,
@@ -135,7 +133,5 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>{
     );
 
   }
-
-
 
 }
