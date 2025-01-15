@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      /*floatingActionButton: Column(
+      floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: const Text('Squares'),
           )
         ],
-      ),*/
+      ),
     );
   }
 }
