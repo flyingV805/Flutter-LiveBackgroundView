@@ -23,7 +23,8 @@ Each mode can have a blur effect applied, and shadows can be added to Circles an
 Add package to dependencies
 
 ```yaml
-    hfghfghfgh: 1.0.0
+dependencies:
+    animated_background_view: ^0.0.1
 ```
 
 Add AnimatedBackground View in your widget tree
