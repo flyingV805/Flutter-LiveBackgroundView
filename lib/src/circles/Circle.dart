@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:animated_background_view/src/circles/CircleListener.dart';
+import 'package:flutter/material.dart';
 
 class Circle {
 
@@ -9,6 +10,7 @@ class Circle {
   final double xVector;
   final double yVector;
   final double size;
+  final bool shadows;
   final Color color;
   final CircleListener stainListener;
 
@@ -19,6 +21,7 @@ class Circle {
     required this.xVector,
     required this.yVector,
     required this.size,
+    required this.shadows,
     required this.color,
     required this.stainListener
   });
@@ -38,7 +41,15 @@ class Circle {
     }
 
     paint.color = color;
-    canvas.drawCircle(Offset(x, y), size, paint);
+
+    final center = Offset(x, y);
+
+    if(shadows){
+      final shadowPath = Path()..addOval(Rect.fromCircle(center: center, radius: size));
+      canvas.drawShadow(shadowPath, Colors.black, 16, true);
+    }
+
+    canvas.drawCircle(center, size, paint);
 
   }
 

@@ -15,6 +15,7 @@ class SquaresPainter extends BackgroundPainter implements SquareListener {
   final Random _random = Random();
   final List<Color> colors;
   final int squareCount = 6;
+  final bool shadows;
   final bool enableBlur;
   final double blurAmount;
 
@@ -27,6 +28,7 @@ class SquaresPainter extends BackgroundPainter implements SquareListener {
     super.repaint,
     required this.colors,
     required this.enableBlur,
+    required this.shadows,
     required this.blurAmount,
   }){
     if(enableBlur){
@@ -71,7 +73,7 @@ class SquaresPainter extends BackgroundPainter implements SquareListener {
   Square _createSquare(int id){
     final squareSize = max(_viewWidth, _viewHeight);
     final rotationDirection = _random.nextBool();
-    final rotationFactor = rotationDirection ? doubleInRange(_random, -0.001, -0.005) : doubleInRange(_random, 0.001, 0.005);
+    final rotationFactor = rotationDirection ? doubleInRange(_random, -0.0005, -0.002) : doubleInRange(_random, 0.0005, 0.002);
     return Square(
       id: id,
       x: _random.nextBool() ? -squareSize : _viewWidth + squareSize,
@@ -79,6 +81,7 @@ class SquaresPainter extends BackgroundPainter implements SquareListener {
       xVector: doubleInRange(_random, -5, 5),
       yVector: doubleInRange(_random, -5, 5),
       size: squareSize,
+      shadows: shadows,
       color: colors.randomItem(_random),
       rotation: doubleInRange(_random, 0, 180),
       rotationFactor: rotationFactor,

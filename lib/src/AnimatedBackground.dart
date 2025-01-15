@@ -21,10 +21,10 @@ class AnimatedBackground extends StatefulWidget {
   final BackgroundType type;
   final int glareCount;
   final double glareSize;
-  final List<Color> glareColors;
-  final List<Color> stainsColors;
+  final List<Color> colors;
   final bool blur;
   final double blurAmount;
+  final bool shadows;
 
   const AnimatedBackground({
     super.key,
@@ -32,7 +32,7 @@ class AnimatedBackground extends StatefulWidget {
     this.type = BackgroundType.movingGlares,
     this.glareCount = 24,
     this.glareSize = 48,
-    this.glareColors = const <Color>[
+    this.colors = const <Color>[
       Color(0xfffacbc1),
       Color(0xffef6f42),
       Color(0xfff1ad4c),
@@ -40,13 +40,9 @@ class AnimatedBackground extends StatefulWidget {
       Color(0xffefbc3f),
       Color(0xfff37656)
     ],
-    this.stainsColors = const <Color>[
-      Color(0xffef6f42),
-      Color(0xfff1ad4c),
-      Color(0xffab5021),
-    ],
     this.blur = true,
     this.blurAmount = 12,
+    this.shadows = true,
   });
 
   @override
@@ -80,7 +76,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>{
     _painter = switch(widget.type){
       BackgroundType.glares => GlaresPainter(
         repaint: _shouldRepaint,
-        colors: widget.glareColors,
+        colors: widget.colors,
         glareCount: widget.glareCount,
         glareSize: widget.glareSize,
         enableBlur: widget.blur,
@@ -88,7 +84,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>{
       ),
       BackgroundType.movingGlares => MovingGlarePainter(
         repaint: _shouldRepaint,
-        colors: widget.glareColors,
+        colors: widget.colors,
         glareCount: widget.glareCount,
         glareSize: widget.glareSize,
         enableBlur: widget.blur,
@@ -96,13 +92,15 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>{
       ),
       BackgroundType.circles => CirclesPainter(
         repaint: _shouldRepaint,
-        colors: widget.stainsColors,
+        colors: widget.colors,
+        shadows: widget.shadows,
         enableBlur: widget.blur,
         blurAmount: widget.blurAmount
       ),
       BackgroundType.squares => SquaresPainter(
         repaint: _shouldRepaint,
-        colors: widget.stainsColors,
+        colors: widget.colors,
+        shadows: widget.shadows,
         enableBlur: widget.blur,
         blurAmount: widget.blurAmount
       ),

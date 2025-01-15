@@ -13,6 +13,7 @@ class CirclesPainter extends BackgroundPainter implements CircleListener {
   final int _circlesCount = 6;
 
   final List<Color> colors;
+  final bool shadows;
   final bool enableBlur;
   final double blurAmount;
 
@@ -24,6 +25,7 @@ class CirclesPainter extends BackgroundPainter implements CircleListener {
   CirclesPainter({
     super.repaint,
     required this.colors,
+    required this.shadows,
     required this.enableBlur,
     required this.blurAmount,
   }){
@@ -75,6 +77,7 @@ class CirclesPainter extends BackgroundPainter implements CircleListener {
       xVector: doubleInRange(_random, -3.3, 3.3),
       yVector: doubleInRange(_random, -3.3, 3.3),
       size: size,
+      shadows: shadows,
       color: colors.randomItem(_random),
       stainListener: this,
     );

@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 import 'SquareListener.dart';
 import 'SquareRotator.dart';
 
@@ -11,6 +13,7 @@ class Square {
   final double xVector;
   final double yVector;
   final double size;
+  final bool shadows;
   final Color color;
   double rotation;
   double rotationFactor;
@@ -23,6 +26,7 @@ class Square {
     required this.xVector,
     required this.yVector,
     required this.size,
+    required this.shadows,
     required this.color,
     required this.rotation,
     required this.rotationFactor,
@@ -57,6 +61,10 @@ class Square {
     path.moveTo(square[0].x, square[0].y);
     for (int i = 1; i < square.length; i++) { path.lineTo(square[i].x, square[i].y); }
     path.close();
+
+    if(shadows) {
+      canvas.drawShadow(path, Colors.black, 16, true);
+    }
 
     canvas.drawPath(path, paint);
 
