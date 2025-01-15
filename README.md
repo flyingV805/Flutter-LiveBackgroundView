@@ -20,6 +20,12 @@ Each mode can have a blur effect applied, and shadows can be added to Circles an
 
 ## Usage
 
+Add package to dependencies
+
+```yaml
+    hfghfghfgh: 1.0.0
+```
+
 ```dart
 const AnimatedBackground(
   fps: 60,
@@ -30,6 +36,4 @@ const AnimatedBackground(
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+All rendering is implemented on Canvas for optimal performance. Painter initialization occurs in initState to avoid unnecessary recompositions. The rendering FPS can be adjusted as needed (implemented using Timer.periodic()).
