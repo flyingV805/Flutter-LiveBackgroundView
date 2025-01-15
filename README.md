@@ -7,7 +7,7 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 | Glares                                       | MovingGlares                                       | Circles                                       | Squares                                       |
 |----------------------------------------------|----------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
-| <img src="/readme/glares.gif" width="200" /> | <img src="/readme/movingGlares.gif" width="200" /> | <img src="/readme/circles.gif" width="200" /> | <img src="/readme/squares.gif" width="200" /> |
+| <img src="/readme/glares.gif" width="150" /> | <img src="/readme/movingGlares.gif" width="150" /> | <img src="/readme/circles.gif" width="150" /> | <img src="/readme/squares.gif" width="150" /> |
 
 ## Getting started
 
