@@ -5,6 +5,10 @@ know whether this package might be useful for them.
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
 
+| Glares                                       | MovingGlares                                       | Circles                                       | Squares                                       |
+|----------------------------------------------|----------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
+| <img src="/readme/glares.gif" width="200" /> | <img src="/readme/movingGlares.gif" width="200" /> | <img src="/readme/circles.gif" width="200" /> | <img src="/readme/squares.gif" width="200" /> |
+
 ## Getting started
 
 TODO: List prerequisites and provide or point to information on how to
@@ -14,10 +18,6 @@ start using the package.
 
 TODO: Include short and useful examples for package users. Add longer examples
 to `/example` folder.
-
-```dart
-const like = 'sample';
-```
 
 ## Additional information
 

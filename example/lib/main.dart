@@ -46,7 +46,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   bool _blur = false;
-  BackgroundType _bgType = BackgroundType.circles;
+  BackgroundType _bgType = BackgroundType.squares;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      floatingActionButton: Column(
+      /*floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: const Text('Squares'),
           )
         ],
-      ),
+      ),*/
     );
   }
 }
