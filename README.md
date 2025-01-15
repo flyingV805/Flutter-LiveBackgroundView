@@ -26,6 +26,8 @@ Add package to dependencies
     hfghfghfgh: 1.0.0
 ```
 
+Add AnimatedBackground View in your widget tree
+
 ```dart
 const AnimatedBackground(
   fps: 60,
