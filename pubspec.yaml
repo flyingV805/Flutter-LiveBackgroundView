@@ -1,7 +1,7 @@
 name: animated_background_view
 description: "Animated background view for elements"
 version: 0.0.1
-homepage:
+homepage: https://github.com/flyingV805/Flutter-LiveBackgroundView
 
 environment:
   sdk: ^3.5.0

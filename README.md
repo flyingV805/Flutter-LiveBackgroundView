@@ -39,3 +39,5 @@ const AnimatedBackground(
 ## Additional information
 
 All rendering is implemented on Canvas for optimal performance. Painter initialization occurs in initState to avoid unnecessary recompositions. The rendering FPS can be adjusted as needed (implemented using Timer.periodic()).
+
+Feel free to suggest your feature requests in the Issues
