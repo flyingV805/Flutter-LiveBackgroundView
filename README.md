@@ -23,7 +23,7 @@ Add package to dependencies
 
 ```yaml
 dependencies:
-    animated_background_view: ^0.0.1
+    animated_background_view: ^0.0.2
 ```
 
 Add AnimatedBackground View in your widget tree
