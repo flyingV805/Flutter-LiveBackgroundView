@@ -1,4 +1,5 @@
 import 'package:animated_background_view/animated_background_view.dart';
+import 'package:fancy_side_menu_demo/ProfileExampleScreen.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -54,6 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileExampleScreen())); },
+            icon: const Icon(Icons.person)
+          )
+        ],
       ),
       body: Stack(
         children: <Widget>[
@@ -90,24 +97,28 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           const SizedBox(height: 16),
           FloatingActionButton.extended(
+            heroTag: '123',
             onPressed: (){ setState(() { _bgType = BackgroundType.glares; _blur = true; }); },
             icon: const Icon(Icons.repeat_one_on),
             label: const Text('Glares'),
           ),
           const SizedBox(height: 16),
           FloatingActionButton.extended(
+            heroTag: '321',
             onPressed: (){ setState(() { _bgType = BackgroundType.movingGlares; _blur = true; }); },
             icon: const Icon(Icons.looks_two_outlined),
             label: const Text('Moving Glares'),
           ),
           const SizedBox(height: 16),
           FloatingActionButton.extended(
+            heroTag: '312',
             onPressed: (){ setState(() { _bgType = BackgroundType.circles; }); _blur = false; },
             icon: const Icon(Icons.threed_rotation),
             label: const Text('Circles'),
           ),
           const SizedBox(height: 16),
           FloatingActionButton.extended(
+            heroTag: '213',
             onPressed: (){ setState(() { _bgType = BackgroundType.squares; }); _blur = false; },
             icon: const Icon(Icons.threed_rotation),
             label: const Text('Squares'),

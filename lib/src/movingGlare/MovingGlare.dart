@@ -45,10 +45,8 @@ class MovingGlare {
     x += xVector;
     y += yVector;
 
-    final isInvisible =
-      ((x + size) < 0 || (x - size) > viewWidth) ||
-      ((y + size) < 0 || (y - size) > viewHeight) ||
-      _alpha <= 0.0;
+    final isOutsideView = ((x + size) < 0 || (x - size) > viewWidth) && ((y + size) < 0 || (y - size) > viewHeight);
+    final isInvisible = isOutsideView || _alpha <= 0.0;
 
     if (isInvisible) {
       glareListener.onGlareAnimationComplete(id);
