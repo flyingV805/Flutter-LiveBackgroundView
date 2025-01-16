@@ -13,7 +13,7 @@ class ProfileExampleScreen extends StatefulWidget {
 class _ProfileExampleScreenState extends State<ProfileExampleScreen>{
 
   static const collapsedBarHeight = 56.0;
-  static const expandedBarHeight = 200.0;
+  static const expandedBarHeight = 220.0;
   final ScrollController _controller = ScrollController();
   bool _isCollapsed = false;
 

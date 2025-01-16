@@ -6,13 +6,30 @@ import 'package:animated_background_view/src/circles/CirclesPainter.dart';
 import 'package:flutter/material.dart';
 import 'utils/BackgroundPainter.dart';
 
+/// Type of rendered effect.
 enum BackgroundType {
+  /// Smooth glares that appear and disappear
   glares,
+  /// Smooth glares that appear and disappear while moving on the screen
   movingGlares,
+  /// Giant circles, moving through the screen
   circles,
+  /// Giant squares, moving through the screen
   squares
 }
 
+/// This widget creates a view that provides a live effect.
+/// There are several parameters for customization.
+///
+/// Here's what you can tweak:
+/// [fps] - The number of times per second that rendering will occur
+/// [type] - Type of background
+/// [glareCount] - The amount of glare on the screen for 'glares' and 'movingGlares'
+/// [glareSize] - The size of glare on the screen for 'glares' and 'movingGlares'
+/// [colors] - Colors used for patterns for all types of effects
+/// [blur] - Whether to apply blur to effects
+/// [blurAmount] - Amount of blur. Ignored if [blur] is false.
+/// [shadows] - Applies shadows to patterns. Works for types 'circles' and 'squares'
 class AnimatedBackground extends StatefulWidget {
 
   final int fps;
