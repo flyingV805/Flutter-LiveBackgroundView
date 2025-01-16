@@ -1,5 +1,5 @@
 name: animated_background_view
-description: "Animated background view for elements"
+description: "A Flutter library for creating live animated backgrounds with effects of moving glares, light spots, and dynamic geometric patterns, adding depth and style to your application. Perfect for splash screens, widget decoration, or interface personalization."
 version: 0.0.2
 homepage: https://github.com/flyingV805/Flutter-LiveBackgroundView
 

@@ -14,8 +14,7 @@ Each mode can have a blur effect applied, and shadows can be added to Circles an
 
 | Glares                                       | MovingGlares                                       | Circles                                       | Squares                                       |
 |----------------------------------------------|----------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
-| <img src="/readme/glares.gif" width="180" /> | <img src="/readme/movingGlares.gif" width="180" /> | <img src="/readme/circles.gif" width="180" /> | <img src="/readme/squares.gif" width="180" /> |
-
+| <img src="https://raw.githubusercontent.com/flyingV805/Flutter-LiveBackgroundView/refs/heads/main/readme/glares.gif" width="180" /> | <img src="https://raw.githubusercontent.com/flyingV805/Flutter-LiveBackgroundView/refs/heads/main/readme/movingGlares.gif" width="180" /> | <img src="https://raw.githubusercontent.com/flyingV805/Flutter-LiveBackgroundView/refs/heads/main/readme/circles.gif" width="180" /> | <img src="https://raw.githubusercontent.com/flyingV805/Flutter-LiveBackgroundView/refs/heads/main/readme/squares.gif" width="180" /> |
 
 
 ## Usage
